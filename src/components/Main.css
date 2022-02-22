@@ -1,0 +1,14 @@
+.Main {
+    padding-top: 5rem;
+}
+
+.btn-top {
+  background-color: rgb(175, 175, 175);
+  padding: 0.7rem; 
+}
+
+.controls {
+    padding: 0.7rem; 
+    top: 50px;
+}
+
