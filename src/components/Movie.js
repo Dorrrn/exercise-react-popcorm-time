@@ -14,15 +14,15 @@ export default function Movie(props) {
 
   return (
     <section className={props.rating < 9 ? "Movie" : "Movie best"}>
-      <container className="flex-container">
+      <div className="flex-container">
         {props.imgURL ? (
           <img src={props.imgURL} />
         ) : (
           <img src="https://via.placeholder.com/182x268" alt="no image" />
         )}
 
+        {/* NEW: {props.imgURL && <img src={props.imgURL} />} */}
         {/* if true, then render (no else condition) */}
-        {/* {props.imgURL && <img src={props.imgURL} />} */}
 
         <div className="movie-content">
           <h2>{props.title}</h2>
@@ -37,8 +37,10 @@ export default function Movie(props) {
           <button onClick={decreaseCounter} className="btn-dislike">
             Dislike
           </button>
+
+          {/* <button onClick={removeMovie}> Remove movie</button> */}
         </div>
-      </container>
+      </div>
     </section>
   );
 }

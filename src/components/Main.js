@@ -8,14 +8,16 @@ export default function Main(props) {
   return (
     <section className="Main">
 
-      {props.moviesArr.map((movie) => {
+      {props.moviesArr.map((movie, index) => {
         return (
           <Movie
+            key={movie.id}
             title={movie.title}
             year={movie.year}
             rating={movie.rating}
             imgURL={movie.imgURL}
-            genres={movie.genres.join(", ")}
+            genres={movie.genres?.join(", ")}
+            // optional chaining operator
           />
         );
       })}
