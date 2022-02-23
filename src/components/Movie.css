@@ -5,7 +5,7 @@
 }
 
 .Movie.best {
-  background-color: rgb(212, 189, 36);
+  background-color: rgb(231, 205, 41);
 }
 
 .btn-like {
@@ -16,6 +16,11 @@
 .btn-dislike {
   background-color: rgb(175, 175, 175);
   padding: 0.7rem;
+}
+
+.btn-top {
+  background-color: rgb(35, 161, 157);
+  padding: 0.7rem;  
 }
 
 button {

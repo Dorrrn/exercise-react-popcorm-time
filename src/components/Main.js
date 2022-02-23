@@ -1,29 +1,14 @@
-import { useState } from "react";
 import "./Main.css";
-import moviesArr from "../data/movies.json";
 import Movie from "./Movie";
-import React from "react";
 
-export default function Main() {
- const [movies, setMovies] = useState(moviesArr);
 
- const displayTopRated = () => {
-   const newList = movies.filter((element) => {
-     return element.rating > 8;
-   });
-   setMovies(newList);
- };
-
+export default function Main(props) {
+//  const [movies, setMovies] = useState(moviesArr);
 
   return (
     <section className="Main">
 
-      <div className="controls">
-        <h3>Filters:</h3>
-        <button onClick={displayTopRated} className="btn-top">Only Top Rated</button>
-      </div>
-
-      {movies.map((movie) => {
+      {props.moviesArr.map((movie) => {
         return (
           <Movie
             title={movie.title}
