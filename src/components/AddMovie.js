@@ -2,20 +2,19 @@ import { useState } from "react";
 import "./AddMovie.css";
 
 export default function AddMovie(props) {
-  const [titleInput, setTitleInput] = useState("");
-  const [yearInput, setYearInput] = useState("1995");
-  const [ratingInput, setRatingInput] = useState("");
-
-  // Task 2:
-  // const [input, setInputs] = useState()
+  const [inputs, setInputs] = useState({
+    title: "",
+    year: 2000,
+    rating: "",
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // event.preventDefault() prevents the page from refreshing - for form
     const newMovie = {
-      title: titleInput,
-      year: yearInput,
-      rating: ratingInput,
+      title: inputs.title,
+      year: inputs.year,
+      rating: inputs.rating,
     };
     props.createNewMovie(newMovie);
     //setMovies([newMovie, ...movies]); // this is moved to App.js, so we have to props it
@@ -23,26 +22,20 @@ export default function AddMovie(props) {
   };
 
   const clearForm = () => {
-    setTitleInput("");
-    setYearInput("1995");
-    setRatingInput("");
+    setInputs({
+      title: "",
+      year: 2000,
+      rating: "",
+    });
   };
 
-  const handleTitleInput = (event) => {
-    const newTitle = event.target.value;
-    setTitleInput(newTitle);
-    // for input field
+  const handleInputChange = (event) => {
+    setInputs((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
   };
-
-  const handleYearInput = (event) => {
-    const newYear = event.target.value;
-    setYearInput(newYear);
-  };
-
-  const handleRatingInput = (event) => {
-    const newRating = event.target.value;
-    setRatingInput(newRating);
-  };
+  // prevState is the value we had before, and we extend with new values from input fields
 
   return (
     <div className="form-addMovie">
@@ -52,8 +45,8 @@ export default function AddMovie(props) {
           <input
             type="text"
             name="title"
-            value={titleInput}
-            onChange={handleTitleInput}
+            value={inputs.title}
+            onChange={handleInputChange}
           />
         </label>
 
@@ -62,8 +55,8 @@ export default function AddMovie(props) {
           <input
             type="number"
             name="year"
-            value={yearInput}
-            onChange={handleYearInput}
+            value={inputs.year}
+            onChange={handleInputChange}
           />
         </label>
 
@@ -72,8 +65,8 @@ export default function AddMovie(props) {
           <input
             type="number"
             name="rating"
-            value={ratingInput}
-            onChange={handleRatingInput}
+            value={inputs.rating}
+            onChange={handleInputChange}
             min="1"
             max="10"
           />

@@ -22,6 +22,7 @@ function App() {
     setMovies([movieDetails, ...movies]);
     // update list of movies with newMovie from AddMovie.js
   };
+
   // Task 1:
   // const removeMovie = (movieId) => {
   //   const filteredMovies = moviesArr.filter ((movie)=> {
